@@ -75,20 +75,6 @@
       margin-top: 20px;
     }
 
-    .testimonials {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .testimonial {
-      margin: 1rem 0;
-      padding: 1rem;
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
     .job-listing {
       border: 1px solid #ccc;
       padding: 1rem;
@@ -145,14 +131,6 @@
       padding: 10px;
     }
 
-    ul {
-      padding-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
     footer {
       background-color: #005bb5;
       color: white;
@@ -183,30 +161,12 @@
       <p>We connect nursing students and professionals to life-changing job opportunities in leading healthcare institutions. Whether you're starting your career or advancing it, we're here to help!</p>
       <a href="#" class="btn" data-target="jobs">Explore Jobs</a>
     </div>
-    <div class="testimonials">
-      <h2>What Our Applicants Say</h2>
-      <div class="testimonial">
-        <p>"Thanks to Nursing Careers, I landed my dream internship at a top hospital. The process was so smooth!"</p>
-        <strong>- Mary, 3rd-Year Nursing Student</strong>
-      </div>
-      <div class="testimonial">
-        <p>"I couldn't believe how easy it was to find a part-time job that matches my skills. This platform is a lifesaver!"</p>
-        <strong>- John, Nursing Graduate</strong>
-      </div>
-    </div>
   </section>
 
   <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
     <p>At Nursing Careers Platform, we’re committed to empowering nursing professionals with meaningful job opportunities. Our platform is designed to match talented individuals with reputable healthcare institutions, ensuring both career growth and job satisfaction.</p>
-    <p>Our values include:</p>
-    <ul>
-      <li><strong>Empowerment:</strong> Helping nurses find fulfilling roles that build their careers.</li>
-      <li><strong>Integrity:</strong> Ensuring transparency and professionalism in all our services.</li>
-      <li><strong>Impact:</strong> Making a positive difference in the healthcare industry.</li>
-    </ul>
-    <p>We partner with leading hospitals, clinics, and healthcare organizations to offer internships, part-time, and full-time roles across Nigeria. Join us and take the first step toward a brighter future!</p>
   </section>
 
   <!-- Jobs Section -->
@@ -222,7 +182,7 @@
     <h2>Application Form</h2>
     <form id="application-form">
       <label for="job-code">Job Code (6 digits from the job listing):</label>
-      <input type="text" id="job-code" name="jobCode" required>
+      <input type="text" id="job-code" name="jobCode" readonly required>
 
       <label for="full-name">Full Name:</label>
       <input type="text" id="full-name" name="fullName" required>
@@ -276,7 +236,7 @@
       });
     });
 
-    // Internship Listings with Codes and Images
+    // Job Listings with Codes and Images
     const jobs = Array.from({ length: 26 }, (_, i) => ({
       id: i + 1,
       title: `Nursing Internship ${i + 1}`,
@@ -299,9 +259,22 @@
           <p><strong>Type:</strong> ${job.type}</p>
           <span class="job-code">Code: ${job.code}</span>
         </div>
-        <a href="#" class="btn" data-target="apply">Apply Now</a>
+        <a href="#" class="btn apply-btn" data-code="${job.code}" data-target="apply">Apply Now</a>
       `;
       jobListingsContainer.appendChild(jobDiv);
+    });
+
+    // Handle Apply Button Click
+    const applyButtons = document.querySelectorAll('.apply-btn');
+    applyButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const jobCode = button.getAttribute('data-code');
+        document.getElementById('job-code').value = jobCode;
+
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById('apply').classList.add('active');
+      });
     });
 
     // Form Submission
